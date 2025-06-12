@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-ms-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-ms
+  template:
+    metadata:
+      labels:
+        app: inventory-ms
+    spec:
+      containers:
+        - name: inventory-ms
+          image: manasshah24/inventory_ms_3:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql-service:3306/inventorydb
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: root

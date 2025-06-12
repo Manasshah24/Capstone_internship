@@ -1,0 +1,4 @@
+package com.example.api_gateway_ms_5.service;
+
+public class CircuitBreakerService {
+}

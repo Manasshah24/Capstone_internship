@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-ms-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-ms
+  template:
+    metadata:
+      labels:
+        app: product-ms
+    spec:
+      containers:
+        - name: product-ms
+          image: manasshah24/product_ms_1:latest  # Replace with your Docker Hub repo
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+

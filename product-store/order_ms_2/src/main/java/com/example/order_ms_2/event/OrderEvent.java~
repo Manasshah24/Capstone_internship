@@ -1,0 +1,4 @@
+package com.example.order_ms_2.event;
+
+public class OrderEvent {
+}

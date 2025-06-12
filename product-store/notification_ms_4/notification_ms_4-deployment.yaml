@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-ms-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-ms
+  template:
+    metadata:
+      labels:
+        app: notification-ms
+    spec:
+      containers:
+        - name: notification-ms
+          image: manasshah24/notification_ms_4:latest
+          ports:
+            - containerPort: 8084

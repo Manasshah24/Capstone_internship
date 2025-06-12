@@ -1,0 +1,18 @@
+server:
+  port: 8083
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://mysql-service:3306/inventorydb
+    username: root
+    password: root
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

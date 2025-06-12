@@ -1,0 +1,67 @@
+server:
+  port: 8085
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak-service:8080/realms/capstone_store
+          jwk-set-uri: http://keycloak-service:8080/realms/capstone_store/protocol/openid-connect/certs
+
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: http://product-service:8081
+          predicates:
+            - Path=/products/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: productCircuitBreaker
+                fallbackUri: forward:/fallback/products
+
+        - id: order-service
+          uri: http://order-service:8082
+          predicates:
+            - Path=/orders/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: orderCircuitBreaker
+                fallbackUri: forward:/fallback/orders
+
+        - id: inventory-service
+          uri: http://inventory-service:8083
+          predicates:
+            - Path=/inventory/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: inventoryCircuitBreaker
+                fallbackUri: forward:/fallback/inventory
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      productCircuitBreaker:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+      orderCircuitBreaker:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+      inventoryCircuitBreaker:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

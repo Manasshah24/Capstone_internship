@@ -1,0 +1,27 @@
+server:
+  port: 8084
+
+spring:
+  kafka:
+    bootstrap-servers: kafka-service:9092
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.common"
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: manasshah2424@gmail.com
+    password: xige ujwh qrbb phec
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

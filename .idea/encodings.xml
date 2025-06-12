@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/product-store/api_gateway_ms_5/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-store/inventory_ms_3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-store/notification_ms_4/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-store/order_ms_2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/product-store/product_ms_1/src/main/java" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: product-service
+
+  data:
+    mongodb:
+      uri: mongodb://mongo-service:27017/productdb  # Use Kubernetes service name
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

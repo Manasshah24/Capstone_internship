@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/product-store/product_ms_1/pom.xml" />
+        <option value="$PROJECT_DIR$/product-store/inventory_ms_3/pom.xml" />
+        <option value="$PROJECT_DIR$/product-store/notification_ms_4/pom.xml" />
+        <option value="$PROJECT_DIR$/product-store/order_ms_2/pom.xml" />
+        <option value="$PROJECT_DIR$/product-store/api_gateway_ms_5/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
